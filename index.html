@@ -8,564 +8,594 @@
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
 }
 
 body{
-    font-family:Arial, sans-serif;
-    background:#fffaf0;
-    color:#173f2b;
+  font-family:Georgia,serif;
+  background:#fbf7ed;
+  color:#243d2d;
 }
 
-header{
-    position:sticky;
-    top:0;
-    z-index:999;
-    background:#083d27;
-    color:white;
-    padding:12px 5%;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    box-shadow:0 3px 15px #0004;
-}
-
-.logo-area{
-    display:flex;
-    align-items:center;
-    gap:12px;
+/* NAVBAR */
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 7%;
+  background:rgba(251,247,237,.96);
+  box-shadow:0 2px 20px rgba(0,0,0,.08);
 }
 
 .logo{
-    width:58px;
-    height:58px;
-    border-radius:50%;
-    background:#fffaf0;
-    border:3px solid #d5a63b;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    color:#0b492e;
-    font-family:Georgia,serif;
-    font-weight:bold;
-    font-size:12px;
-    line-height:1.1;
+  font-size:27px;
+  font-weight:bold;
+  color:#234b32;
 }
 
 .logo span{
-    display:block;
-    font-size:8px;
-    letter-spacing:1px;
+  color:#b88a3b;
 }
 
-.brand h1{
-    font-family:cursive;
-    font-size:25px;
-}
-
-.brand p{
-    font-size:11px;
-    color:#f3d98a;
+nav ul{
+  display:flex;
+  gap:25px;
+  list-style:none;
 }
 
 nav a{
-    color:white;
-    text-decoration:none;
-    margin:0 8px;
-    font-size:14px;
+  text-decoration:none;
+  color:#294333;
+  font-family:Arial,sans-serif;
+  font-weight:bold;
+  font-size:14px;
 }
 
 nav a:hover{
-    color:#f3d98a;
+  color:#b88a3b;
 }
 
-.whatsapp{
-    background:#20b85a;
-    color:white;
-    padding:11px 17px;
-    border-radius:30px;
-    text-decoration:none;
-    font-weight:bold;
-    display:inline-block;
-}
-
+/* HERO */
 .hero{
-    min-height:650px;
-    display:flex;
-    align-items:center;
-    padding:70px 7%;
-    background:
-    linear-gradient(90deg,#fffaf0ee,#fffaf099),
-    url("https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1800&q=90");
-    background-size:cover;
-    background-position:center;
+  min-height:100vh;
+  padding:150px 8% 80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:
+  radial-gradient(circle at 20% 20%,#eadfc9,transparent 30%),
+  radial-gradient(circle at 80% 80%,#e5dcc7,transparent 30%),
+  #fbf7ed;
+}
+
+.hero:before,
+.hero:after{
+  position:absolute;
+  font-size:260px;
+  color:rgba(35,75,50,.06);
+}
+
+.hero:before{
+  content:"❀";
+  left:-60px;
+  top:70px;
+}
+
+.hero:after{
+  content:"✿";
+  right:-50px;
+  bottom:-60px;
 }
 
 .hero-content{
-    max-width:650px;
+  position:relative;
+  z-index:2;
+  max-width:850px;
 }
 
-.hero small{
-    font-size:20px;
-    color:#a37825;
+.tag{
+  color:#b88a3b;
+  letter-spacing:5px;
+  text-transform:uppercase;
+  font:13px Arial,sans-serif;
+  margin-bottom:18px;
 }
 
-.hero h2{
-    font-family:cursive;
-    font-size:65px;
-    line-height:1.1;
-    color:#0b482d;
-    margin:12px 0;
+.hero h1{
+  font-size:clamp(60px,10vw,105px);
+  line-height:.95;
+  color:#234b32;
+}
+
+.hero h1 span{
+  color:#b88a3b;
+}
+
+.hero-line{
+  width:100px;
+  height:2px;
+  background:#b88a3b;
+  margin:25px auto;
 }
 
 .hero p{
-    font-size:19px;
-    margin:15px 0;
+  max-width:650px;
+  margin:auto;
+  color:#647067;
+  font:17px/1.8 Arial,sans-serif;
+}
+
+.buttons{
+  margin-top:35px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
 }
 
 .btn{
-    display:inline-block;
-    padding:14px 25px;
-    background:#0b482d;
-    color:white;
-    text-decoration:none;
-    border-radius:30px;
-    margin:8px 5px 0 0;
-    font-weight:bold;
+  display:inline-block;
+  padding:15px 28px;
+  border-radius:40px;
+  text-decoration:none;
+  font:bold 14px Arial,sans-serif;
+  transition:.3s;
 }
 
-.btn.gold{
-    background:#b5892d;
+.btn-green{
+  background:#234b32;
+  color:white;
 }
 
+.btn-green:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 25px rgba(35,75,50,.25);
+}
+
+.btn-gold{
+  border:1px solid #b88a3b;
+  color:#8d682d;
+}
+
+.btn-gold:hover{
+  background:#b88a3b;
+  color:white;
+}
+
+/* SECTIONS */
 section{
-    padding:75px 7%;
+  padding:95px 7%;
 }
 
-.title{
-    text-align:center;
-    margin-bottom:40px;
+.heading{
+  text-align:center;
+  margin-bottom:55px;
 }
 
-.title h2{
-    font-family:cursive;
-    font-size:43px;
-    color:#0b482d;
+.heading small{
+  color:#b88a3b;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  font:12px Arial,sans-serif;
 }
 
-.title p{
-    color:#666;
+.heading h2{
+  font-size:43px;
+  color:#234b32;
+  margin-top:10px;
 }
 
+/* ABOUT */
 .about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
+  background:#fffdf8;
 }
 
-.about-img{
-    width:100%;
-    height:430px;
-    object-fit:cover;
-    border-radius:25px;
-    box-shadow:0 10px 30px #0002;
+.about-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
 }
 
 .about h3{
-    font-family:cursive;
-    font-size:40px;
-    margin-bottom:15px;
+  font-size:35px;
+  color:#234b32;
+  margin-bottom:20px;
 }
 
 .about p{
-    font-size:17px;
-    color:#444;
+  color:#657068;
+  font:16px/1.8 Arial,sans-serif;
+  margin-bottom:15px;
 }
 
+.about-art{
+  min-height:370px;
+  border:1px solid #d8c8aa;
+  border-radius:25px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+  radial-gradient(circle,#eee3cd,transparent 65%),
+  #f8f1e3;
+  box-shadow:0 15px 40px rgba(35,75,50,.08);
+}
+
+.about-art .symbol{
+  font-size:100px;
+  color:#b88a3b;
+}
+
+.about-art h3{
+  margin:5px 0;
+}
+
+/* SERVICES */
 .services{
-    background:#f7eedc;
+  background:#f4eee1;
 }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:22px;
+.service-grid{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
 }
 
 .card{
-    background:white;
-    border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 5px 20px #0002;
-    transition:.3s;
+  background:#fffdf8;
+  padding:35px 20px;
+  text-align:center;
+  border:1px solid #e1d7c5;
+  border-radius:20px;
+  transition:.35s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
+  transform:translateY(-9px);
+  box-shadow:0 18px 35px rgba(35,75,50,.12);
 }
 
-.card img{
-    width:100%;
-    height:230px;
-    object-fit:cover;
+.icon{
+  font-size:45px;
+  margin-bottom:15px;
 }
 
-.card-content{
-    padding:18px;
-    text-align:center;
+.card h3{
+  color:#234b32;
+  font-size:22px;
+  margin-bottom:10px;
 }
 
-.card-content h3{
-    color:#0b482d;
-    margin-bottom:8px;
+.card p{
+  color:#707970;
+  font:14px/1.6 Arial,sans-serif;
 }
 
-.card-content p{
-    color:#666;
-    font-size:14px;
-}
-
+/* GALLERY */
 .gallery{
-    background:#083d27;
-    color:white;
-}
-
-.gallery .title h2{
-    color:white;
-}
-
-.gallery .title p{
-    color:#ddd;
+  background:#fffdf8;
 }
 
 .gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
 }
 
-.gallery-grid img{
-    width:100%;
-    height:280px;
-    object-fit:cover;
-    border-radius:15px;
-    border:2px solid #d5a63b;
-    transition:.3s;
+.photo{
+  height:280px;
+  overflow:hidden;
+  border-radius:18px;
+  border:5px solid #f4eee1;
+  background:#e9dfcc;
 }
 
-.gallery-grid img:hover{
-    transform:scale(1.04);
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.5s;
 }
 
+.photo:hover img{
+  transform:scale(1.08);
+}
+
+/* BOOKING */
 .booking{
-    background:#fffaf0;
+  background:#f4eee1;
 }
 
-.booking-area{
-    display:grid;
-    grid-template-columns:1.2fr .8fr;
-    gap:35px;
+.booking-box{
+  max-width:850px;
+  margin:auto;
+  background:#fffdf8;
+  padding:45px;
+  border-radius:25px;
+  border:1px solid #ded2bd;
+  box-shadow:0 20px 50px rgba(35,75,50,.08);
 }
 
-form{
-    background:white;
-    padding:30px;
-    border-radius:20px;
-    box-shadow:0 5px 25px #0002;
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.full{
+  grid-column:1/-1;
+}
+
+label{
+  display:block;
+  margin-bottom:7px;
+  color:#31513c;
+  font:bold 13px Arial,sans-serif;
 }
 
 input,select,textarea{
-    width:100%;
-    padding:14px;
-    margin-bottom:16px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    font-size:15px;
-    outline:none;
+  width:100%;
+  padding:14px;
+  border:1px solid #d7cbb5;
+  border-radius:10px;
+  background:#fbf7ed;
+  outline:none;
+  font:14px Arial,sans-serif;
 }
 
-input:focus,select:focus,textarea:focus{
-    border-color:#0b482d;
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#31513c;
 }
 
 textarea{
-    height:120px;
-    resize:none;
+  min-height:110px;
+  resize:vertical;
 }
 
-button{
-    width:100%;
-    padding:15px;
-    border:0;
-    border-radius:30px;
-    background:#20b85a;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
+.submit{
+  width:100%;
+  margin-top:20px;
+  border:none;
+  cursor:pointer;
+  font-size:15px;
 }
 
-.contact-box{
-    background:#083d27;
-    color:white;
-    padding:35px;
-    border-radius:20px;
+/* CONTACT */
+.contact{
+  background:#234b32;
+  color:white;
+  text-align:center;
 }
 
-.contact-box h3{
-    font-family:cursive;
-    font-size:38px;
-    margin-bottom:20px;
+.contact .heading h2{
+  color:white;
 }
 
-.contact-box p{
-    margin:20px 0;
-    font-size:16px;
+.contact .heading small{
+  color:#d8b66c;
 }
 
-.contact-box hr{
-    border:0;
-    border-top:1px solid #ffffff33;
-    margin:20px 0;
+.contact p{
+  font:16px/2 Arial,sans-serif;
+  margin-bottom:25px;
 }
 
-.reviews{
-    background:#f7eedc;
-}
-
-.review-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.review{
-    background:white;
-    padding:25px;
-    border-radius:18px;
-    box-shadow:0 5px 15px #0001;
-}
-
-.review .stars{
-    color:#e4a51a;
-    font-size:20px;
-}
-
-.review h4{
-    margin-top:15px;
-}
-
+/* FOOTER */
 footer{
-    background:#062c1d;
-    color:white;
-    text-align:center;
-    padding:35px 5%;
+  background:#183625;
+  color:#d9dfd9;
+  text-align:center;
+  padding:25px;
+  font:13px Arial,sans-serif;
 }
 
-footer h2{
-    font-family:cursive;
-    font-size:30px;
-    color:#f3d98a;
+/* WHATSAPP */
+.whatsapp{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  background:#25d366;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-decoration:none;
+  font:bold 25px Arial;
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+  z-index:999;
 }
 
-footer p{
-    margin:7px;
+/* MOBILE */
+@media(max-width:850px){
+
+  nav{
+    justify-content:center;
+  }
+
+  nav ul{
+    display:none;
+  }
+
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+  .service-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .full{
+    grid-column:auto;
+  }
 }
 
-@media(max-width:1000px){
+@media(max-width:500px){
 
-    nav{
-        display:none;
-    }
+  section{
+    padding:75px 18px;
+  }
 
-    .cards{
-        grid-template-columns:repeat(2,1fr);
-    }
+  .hero{
+    padding-left:20px;
+    padding-right:20px;
+  }
 
-    .gallery-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+  .hero h1{
+    font-size:58px;
+  }
 
-    .about,
-    .booking-area{
-        grid-template-columns:1fr;
-    }
-}
+  .heading h2{
+    font-size:34px;
+  }
 
-@media(max-width:600px){
+  .service-grid{
+    grid-template-columns:1fr;
+  }
 
-    header{
-        padding:10px 4%;
-    }
+  .gallery-grid{
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+  }
 
-    .brand h1{
-        font-size:20px;
-    }
+  .photo{
+    height:190px;
+  }
 
-    .brand p{
-        display:none;
-    }
-
-    .hero{
-        min-height:600px;
-        padding:50px 5%;
-    }
-
-    .hero h2{
-        font-size:45px;
-    }
-
-    .hero p{
-        font-size:16px;
-    }
-
-    section{
-        padding:55px 5%;
-    }
-
-    .title h2{
-        font-size:35px;
-    }
-
-    .cards,
-    .gallery-grid,
-    .review-grid{
-        grid-template-columns:1fr;
-    }
-
-    .gallery-grid img{
-        height:330px;
-    }
+  .booking-box{
+    padding:25px 18px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-
-<div class="logo-area">
-
-<div class="logo">
-🌿<br>
-Jabeen
-<span>MEHENDI</span>
-</div>
-
-<div class="brand">
-<h1>Jabeen Mehendi</h1>
-<p>Beautiful Mehendi for Every Occasion</p>
-</div>
-
-</div>
-
+<!-- NAVIGATION -->
 <nav>
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#gallery">Gallery</a>
-<a href="#booking">Booking</a>
-<a href="#contact">Contact</a>
+  <div class="logo">
+    Jabeen <span>Mehendi</span>
+  </div>
+
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#booking">Booking</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
-<a class="whatsapp"
-href="https://wa.me/919288594755?text=Hello%20Jabeen%20Mehendi%2C%20I%20want%20to%20book%20a%20Mehendi%20appointment."
-target="_blank">
-WhatsApp
-</a>
 
-</header>
-
-
-<!-- HOME -->
+<!-- HERO -->
 <section class="hero" id="home">
 
-<div class="hero-content">
+  <div class="hero-content">
 
-<small>🌿 Welcome to</small>
+    <div class="tag">
+      Mehendi Artist • Darbhanga
+    </div>
 
-<h2>Jabeen Mehendi</h2>
+    <h1>
+      Jabeen<br>
+      <span>Mehendi</span>
+    </h1>
 
-<p>
-Beautiful Mehendi designs made with love,
-creativity and traditional artistry.
-</p>
+    <div class="hero-line"></div>
 
-<p>
-👰 Bridal &nbsp; | &nbsp;
-🌿 Arabic &nbsp; | &nbsp;
-💍 Engagement &nbsp; | &nbsp;
-✨ Custom Designs
-</p>
+    <p>
+      Elegant mehendi designs crafted with creativity,
+      tradition and love — making your special moments
+      even more beautiful.
+    </p>
 
-<p>📍 Darbhanga, Bihar</p>
+    <div class="buttons">
 
-<a class="btn" href="#booking">
-📅 Book Now
-</a>
+      <a href="#booking" class="btn btn-green">
+        Book Your Mehendi
+      </a>
 
-<a class="btn gold"
-href="https://wa.me/919288594755?text=Hello%20Jabeen%20Mehendi%2C%20I%20want%20to%20know%20about%20your%20Mehendi%20services."
-target="_blank">
-💬 WhatsApp
-</a>
+      <a href="#gallery" class="btn btn-gold">
+        Explore Gallery
+      </a>
 
-</div>
+    </div>
+
+  </div>
 
 </section>
 
 
 <!-- ABOUT -->
-<section id="about">
+<section class="about" id="about">
 
-<div class="about">
+  <div class="heading">
+    <small>Our Story</small>
+    <h2>Beauty In Every Detail</h2>
+  </div>
 
-<img class="about-img"
-src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=1000&q=90"
-alt="Jabeen Mehendi">
+  <div class="about-grid">
 
-<div>
+    <div>
+      <h3>Made For Your Special Moments</h3>
 
-<h3>About Jabeen Mehendi 🌿</h3>
+      <p>
+        Welcome to Jabeen Mehendi, Darbhanga's destination
+        for beautiful and elegant mehendi artistry.
+      </p>
 
-<p>
-Welcome to <b>Jabeen Mehendi</b>, a Mehendi
-artist based in Darbhanga, Bihar.
-</p>
+      <p>
+        We create designs for brides, engagements,
+        parties and special celebrations.
+      </p>
 
-<br>
+      <p>
+        Every design is created with attention to detail
+        and according to your personal style.
+      </p>
+    </div>
 
-<p>
-We create beautiful and elegant Mehendi
-designs for weddings, engagements,
-festivals, parties and special occasions.
-</p>
+    <div class="about-art">
+      <div>
+        <div class="symbol">❀</div>
+        <h3>Jabeen Mehendi</h3>
+        <p>Traditional Art • Modern Elegance</p>
+      </div>
+    </div>
 
-<br>
-
-<p>
-Our goal is simple — to make your special
-moments even more beautiful with creative
-and memorable Mehendi.
-</p>
-
-<br>
-
-<p>
-❤️ Traditional designs &nbsp;
-❤️ Modern designs &nbsp;
-❤️ Custom designs
-</p>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
@@ -573,99 +603,46 @@ and memorable Mehendi.
 <!-- SERVICES -->
 <section class="services" id="services">
 
-<div class="title">
+  <div class="heading">
+    <small>What We Offer</small>
+    <h2>Our Mehendi Services</h2>
+  </div>
 
-<h2>Our Mehendi Services</h2>
+  <div class="service-grid">
 
-<p>
-Choose the Mehendi style you love
-</p>
+    <div class="card">
+      <div class="icon">👰</div>
+      <h3>Bridal</h3>
+      <p>
+        Detailed and elegant mehendi for your wedding day.
+      </p>
+    </div>
 
-</div>
+    <div class="card">
+      <div class="icon">🌿</div>
+      <h3>Arabic</h3>
+      <p>
+        Stylish floral patterns with a beautiful modern touch.
+      </p>
+    </div>
 
+    <div class="card">
+      <div class="icon">💍</div>
+      <h3>Engagement</h3>
+      <p>
+        Beautiful designs for your engagement celebration.
+      </p>
+    </div>
 
-<div class="cards">
+    <div class="card">
+      <div class="icon">✨</div>
+      <h3>Party</h3>
+      <p>
+        Simple and attractive designs for every occasion.
+      </p>
+    </div>
 
-<div class="card">
-
-<img
-src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=90"
-alt="Bridal Mehendi">
-
-<div class="card-content">
-
-<h3>👰 Bridal Mehendi</h3>
-
-<p>
-Detailed and beautiful designs
-for your wedding day.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="card">
-
-<img
-src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=90"
-alt="Arabic Mehendi">
-
-<div class="card-content">
-
-<h3>🌿 Arabic Mehendi</h3>
-
-<p>
-Stylish, elegant and trendy
-Arabic patterns.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="card">
-
-<img
-src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=90"
-alt="Engagement Mehendi">
-
-<div class="card-content">
-
-<h3>💍 Engagement Mehendi</h3>
-
-<p>
-Beautiful designs for your
-engagement ceremony.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="card">
-
-<img
-src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=800&q=90"
-alt="Party Mehendi">
-
-<div class="card-content">
-
-<h3>✨ Party Mehendi</h3>
-
-<p>
-Simple, stylish and attractive
-designs for every occasion.
-</p>
-
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
@@ -673,292 +650,203 @@ designs for every occasion.
 <!-- GALLERY -->
 <section class="gallery" id="gallery">
 
-<div class="title">
+  <div class="heading">
+    <small>Our Work</small>
+    <h2>Mehendi Gallery</h2>
+  </div>
 
-<h2>🌿 Mehendi Design Gallery</h2>
+  <div class="gallery-grid">
 
-<p>
-Explore beautiful Mehendi inspiration
-</p>
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=800&q=85">
+    </div>
 
-</div>
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=85">
+    </div>
 
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=85">
+    </div>
 
-<div class="gallery-grid">
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=85">
+    </div>
 
-<img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=90"
-alt="Bridal Mehendi">
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=800&q=85">
+    </div>
 
-<img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=90"
-alt="Mehendi Design">
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=800&q=85">
+    </div>
 
-<img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=90"
-alt="Wedding Mehendi">
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=800&q=85">
+    </div>
 
-<img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=800&q=90"
-alt="Simple Mehendi">
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85">
+    </div>
 
-<img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=90"
-alt="Mehendi Artist">
-
-<img src="https://images.unsplash.com/photo-1465495976277-4387d4b0e4a6?auto=format&fit=crop&w=800&q=90"
-alt="Bridal Design">
-
-<img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=90"
-alt="Arabic Design">
-
-<img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=90"
-alt="Henna Design">
-
-</div>
+  </div>
 
 </section>
 
 
 <!-- BOOKING -->
-<section id="booking">
+<section class="booking" id="booking">
 
-<div class="title">
+  <div class="heading">
+    <small>Appointment</small>
+    <h2>Book Your Mehendi</h2>
+  </div>
 
-<h2>📅 Book Your Appointment</h2>
+  <div class="booking-box">
 
-<p>
-Fill the form and your booking request will open directly in WhatsApp.
-</p>
+    <form id="bookingForm">
 
-</div>
+      <div class="form-grid">
 
+        <div>
+          <label>Your Name</label>
+          <input id="name" type="text"
+                 placeholder="Enter your name" required>
+        </div>
 
-<div class="booking-area">
+        <div>
+          <label>Phone Number</label>
+          <input id="phone" type="tel"
+                 placeholder="Enter phone number" required>
+        </div>
 
-<form id="bookingForm">
+        <div>
+          <label>Mehendi Type</label>
 
-<input
-type="text"
-id="name"
-placeholder="Your Name *"
-required>
+          <select id="service" required>
+            <option value="">Select service</option>
+            <option>Bridal Mehendi</option>
+            <option>Arabic Mehendi</option>
+            <option>Engagement Mehendi</option>
+            <option>Party Mehendi</option>
+            <option>Custom Design</option>
+          </select>
 
-<input
-type="tel"
-id="phone"
-placeholder="Your Phone Number *"
-required>
+        </div>
 
-<select id="service" required>
+        <div>
+          <label>Event Date</label>
+          <input id="date" type="date" required>
+        </div>
 
-<option value="">Select Mehendi Service *</option>
+        <div class="full">
+          <label>Event Location</label>
+          <input id="location" type="text"
+                 placeholder="Enter event location">
+        </div>
 
-<option>Bridal Mehendi</option>
-<option>Arabic Mehendi</option>
-<option>Engagement Mehendi</option>
-<option>Party Mehendi</option>
-<option>Simple Mehendi</option>
-<option>Custom Mehendi Design</option>
+        <div class="full">
+          <label>Message</label>
+          <textarea id="message"
+                    placeholder="Tell us about your requirement..."></textarea>
+        </div>
 
-</select>
+      </div>
 
-<input
-type="date"
-id="date"
-required>
+      <button class="btn btn-green submit" type="submit">
+        💬 Send Booking on WhatsApp
+      </button>
 
-<input
-type="text"
-id="eventLocation"
-placeholder="Event Location">
+    </form>
 
-<textarea
-id="message"
-placeholder="Any special requirement?"></textarea>
-
-<button type="submit">
-📲 Send Booking on WhatsApp
-</button>
-
-</form>
-
-
-<!-- CONTACT -->
-<div class="contact-box" id="contact">
-
-<h3>Get in Touch 💚</h3>
-
-<p>
-📍 <b>Location</b><br>
-Darbhanga, Bihar
-</p>
-
-<hr>
-
-<p>
-📱 <b>WhatsApp</b><br>
-+91 92885 94755
-</p>
-
-<hr>
-
-<p>
-🌿 <b>Services</b><br>
-Bridal • Arabic • Engagement
-• Party • Custom
-</p>
-
-<br>
-
-<a class="whatsapp"
-href="https://wa.me/919288594755"
-target="_blank">
-💬 Chat on WhatsApp
-</a>
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- REVIEWS -->
-<section class="reviews">
+<!-- CONTACT -->
+<section class="contact" id="contact">
 
-<div class="title">
+  <div class="heading">
+    <small>Contact</small>
+    <h2>Let's Create Beautiful Memories</h2>
+  </div>
 
-<h2>⭐ Happy Clients</h2>
+  <p>
+    📍 Darbhanga, Bihar
+    <br>
+    📱 +91 92885 94755
+  </p>
 
-<p>
-Your happiness is our biggest reward
-</p>
-
-</div>
-
-
-<div class="review-grid">
-
-<div class="review">
-
-<div class="stars">★★★★★</div>
-
-<p>
-"Beautiful Mehendi design and
-very neat work. Loved it!"
-</p>
-
-<h4>— Happy Client</h4>
-
-</div>
-
-
-<div class="review">
-
-<div class="stars">★★★★★</div>
-
-<p>
-"Very creative and elegant
-Mehendi. Highly recommended."
-</p>
-
-<h4>— Happy Client</h4>
-
-</div>
-
-
-<div class="review">
-
-<div class="stars">★★★★★</div>
-
-<p>
-"Perfect Mehendi for my
-special occasion. Thank you!"
-</p>
-
-<h4>— Happy Client</h4>
-
-</div>
-
-</div>
+  <a class="btn btn-gold"
+     href="https://wa.me/919288594755"
+     target="_blank">
+    Chat on WhatsApp
+  </a>
 
 </section>
 
 
 <!-- FOOTER -->
 <footer>
-
-<h2>Jabeen Mehendi 🌿</h2>
-
-<p>
-Beautiful Mehendi for Every Occasion
-</p>
-
-<p>
-📍 Darbhanga, Bihar
-</p>
-
-<p>
-📱 +91 92885 94755
-</p>
-
-<br>
-
-<p>
-© 2026 Jabeen Mehendi | All Rights Reserved
-</p>
-
+  © 2026 Jabeen Mehendi • Darbhanga, Bihar
+  <br><br>
+  Made with ❤️ for beautiful mehendi moments
 </footer>
 
 
-<!-- WHATSAPP BOOKING SCRIPT -->
+<!-- WHATSAPP FLOATING BUTTON -->
+<a class="whatsapp"
+   href="https://wa.me/919288594755"
+   target="_blank">
+  ☎
+</a>
+
+
 <script>
 
 document.getElementById("bookingForm")
-.addEventListener("submit", function(event){
+.addEventListener("submit", function(e){
 
-event.preventDefault();
+  e.preventDefault();
 
-let name =
-document.getElementById("name").value;
+  let name =
+  document.getElementById("name").value;
 
-let phone =
-document.getElementById("phone").value;
+  let phone =
+  document.getElementById("phone").value;
 
-let service =
-document.getElementById("service").value;
+  let service =
+  document.getElementById("service").value;
 
-let date =
-document.getElementById("date").value;
+  let date =
+  document.getElementById("date").value;
 
-let location =
-document.getElementById("eventLocation").value;
+  let location =
+  document.getElementById("location").value;
 
-let message =
-document.getElementById("message").value;
+  let message =
+  document.getElementById("message").value;
 
-
-let whatsappMessage =
-`🌿 JABЕEN MEHENDI - BOOKING REQUEST
+  let text =
+`🌿 *JABEEN MEHENDI - BOOKING REQUEST* 🌿
 
 👤 Name: ${name}
-
 📱 Phone: ${phone}
+🎨 Service: ${service}
+📅 Event Date: ${date}
+📍 Location: ${location}
 
-💅 Service: ${service}
-
-📅 Date: ${date}
-
-📍 Event Location: ${location}
-
-💬 Special Requirement:
+💬 Message:
 ${message}
 
-Thank you! 🌿`;
+I would like to book a mehendi appointment.`;
 
+  let url =
+  "https://wa.me/919288594755?text="
+  + encodeURIComponent(text);
 
-let url =
-"https://wa.me/919288594755?text="
-+ encodeURIComponent(whatsappMessage);
-
-
-window.open(url,"_blank");
+  window.open(url,"_blank");
 
 });
 
