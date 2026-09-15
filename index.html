@@ -288,42 +288,24 @@ section{
   font:14px/1.6 Arial,sans-serif;
 }
 
-/* GALLERY */
-.gallery{
-  background:#fffdf8;
-}
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
 
-.gallery-grid{
-  max-width:1150px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:16px;
-}
+  <div class="heading">
+    <small>Our Work</small>
+    <h2>Mehendi Gallery</h2>
+    <p style="color:#657068;font:15px Arial,sans-serif;margin-top:12px;">
+      Explore our beautiful mehendi designs
+    </p>
+  </div>
 
-.photo{
-  height:280px;
-  overflow:hidden;
-  border-radius:18px;
-  border:5px solid #f4eee1;
-  background:#e9dfcc;
-}
+  <div class="gallery-grid" id="galleryGrid">
+    <p style="text-align:center;grid-column:1/-1;font:16px Arial,sans-serif;">
+      Loading gallery...
+    </p>
+  </div>
 
-.photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.5s;
-}
-
-.photo:hover img{
-  transform:scale(1.08);
-}
-
-/* BOOKING */
-.booking{
-  background:#f4eee1;
-}
+</section>
 
 .booking-box{
   max-width:850px;
@@ -804,7 +786,45 @@ footer{
 
 
 <script>
+// ===== GITHUB PHOTO GALLERY =====
 
+const galleryGrid = document.getElementById("galleryGrid");
+
+fetch("https://api.github.com/repos/jabeenmehendi03/jabeen-mehendi/contents/?per_page=100")
+  .then(response => response.json())
+  .then(files => {
+
+    galleryGrid.innerHTML = "";
+
+    const images = files.filter(file =>
+      file.type === "file" &&
+      /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)
+    );
+
+    images.forEach((file, index) => {
+
+      const photo = document.createElement("div");
+      photo.className = "photo";
+
+      const img = document.createElement("img");
+      img.src = file.download_url;
+      img.alt = "Jabeen Mehendi Design " + (index + 1);
+      img.loading = "lazy";
+
+      photo.appendChild(img);
+      galleryGrid.appendChild(photo);
+
+    });
+
+  })
+  .catch(error => {
+
+    galleryGrid.innerHTML =
+      "<p style='grid-column:1/-1;text-align:center;'>Gallery load nahi ho payi. Please refresh the page.</p>";
+
+    console.error(error);
+
+  });
 document.getElementById("bookingForm")
 .addEventListener("submit", function(e){
 
