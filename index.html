@@ -1,723 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jabeen Mehendi | Darbhanga</title>
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  scroll-behavior:smooth;
-}
-
-body{
-  font-family:Georgia,serif;
-  background:#fbf7ed;
-  color:#243d2d;
-}
-
-/* NAVBAR */
-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:1000;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:18px 7%;
-  background:rgba(251,247,237,.96);
-  box-shadow:0 2px 20px rgba(0,0,0,.08);
-}
-
-.logo{
-  font-size:27px;
-  font-weight:bold;
-  color:#234b32;
-}
-
-.logo span{
-  color:#b88a3b;
-}
-
-nav ul{
-  display:flex;
-  gap:25px;
-  list-style:none;
-}
-
-nav a{
-  text-decoration:none;
-  color:#294333;
-  font-family:Arial,sans-serif;
-  font-weight:bold;
-  font-size:14px;
-}
-
-nav a:hover{
-  color:#b88a3b;
-}
-
-/* HERO */
-.hero{
-  min-height:100vh;
-  padding:150px 8% 80px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  background:
-  radial-gradient(circle at 20% 20%,#eadfc9,transparent 30%),
-  radial-gradient(circle at 80% 80%,#e5dcc7,transparent 30%),
-  #fbf7ed;
-}
-
-.hero:before,
-.hero:after{
-  position:absolute;
-  font-size:260px;
-  color:rgba(35,75,50,.06);
-}
-
-.hero:before{
-  content:"❀";
-  left:-60px;
-  top:70px;
-}
-
-.hero:after{
-  content:"✿";
-  right:-50px;
-  bottom:-60px;
-}
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:850px;
-}
-
-.tag{
-  color:#b88a3b;
-  letter-spacing:5px;
-  text-transform:uppercase;
-  font:13px Arial,sans-serif;
-  margin-bottom:18px;
-}
-
-.hero h1{
-  font-size:clamp(60px,10vw,105px);
-  line-height:.95;
-  color:#234b32;
-}
-
-.hero h1 span{
-  color:#b88a3b;
-}
-
-.hero-line{
-  width:100px;
-  height:2px;
-  background:#b88a3b;
-  margin:25px auto;
-}
-
-.hero p{
-  max-width:650px;
-  margin:auto;
-  color:#647067;
-  font:17px/1.8 Arial,sans-serif;
-}
-
-.buttons{
-  margin-top:35px;
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
-}
-
-.btn{
-  display:inline-block;
-  padding:15px 28px;
-  border-radius:40px;
-  text-decoration:none;
-  font:bold 14px Arial,sans-serif;
-  transition:.3s;
-}
-
-.btn-green{
-  background:#234b32;
-  color:white;
-}
-
-.btn-green:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 25px rgba(35,75,50,.25);
-}
-
-.btn-gold{
-  border:1px solid #b88a3b;
-  color:#8d682d;
-}
-
-.btn-gold:hover{
-  background:#b88a3b;
-  color:white;
-}
-
-/* SECTIONS */
-section{
-  padding:95px 7%;
-}
-
-.heading{
-  text-align:center;
-  margin-bottom:55px;
-}
-
-.heading small{
-  color:#b88a3b;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  font:12px Arial,sans-serif;
-}
-
-.heading h2{
-  font-size:43px;
-  color:#234b32;
-  margin-top:10px;
-}
-
-/* ABOUT */
-.about{
-  background:#fffdf8;
-}
-
-.about-grid{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
-  align-items:center;
-}
-
-.about h3{
-  font-size:35px;
-  color:#234b32;
-  margin-bottom:20px;
-}
-
-.about p{
-  color:#657068;
-  font:16px/1.8 Arial,sans-serif;
-  margin-bottom:15px;
-}
-
-.about-art{
-  min-height:370px;
-  border:1px solid #d8c8aa;
-  border-radius:25px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:
-  radial-gradient(circle,#eee3cd,transparent 65%),
-  #f8f1e3;
-  box-shadow:0 15px 40px rgba(35,75,50,.08);
-}
-
-.about-art .symbol{
-  font-size:100px;
-  color:#b88a3b;
-}
-
-.about-art h3{
-  margin:5px 0;
-}
-
-/* SERVICES */
-.services{
-  background:#f4eee1;
-}
-
-.service-grid{
-  max-width:1150px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-
-.card{
-  background:#fffdf8;
-  padding:35px 20px;
-  text-align:center;
-  border:1px solid #e1d7c5;
-  border-radius:20px;
-  transition:.35s;
-}
-
-.card:hover{
-  transform:translateY(-9px);
-  box-shadow:0 18px 35px rgba(35,75,50,.12);
-}
-
-.icon{
-  font-size:45px;
-  margin-bottom:15px;
-}
-
-.card h3{
-  color:#234b32;
-  font-size:22px;
-  margin-bottom:10px;
-}
-
-.card p{
-  color:#707970;
-  font:14px/1.6 Arial,sans-serif;
-}
-
-/* GALLERY STYLES */
-.gallery{
-  background:#fffdf8;
-}
-
-.gallery-grid{
-  max-width:1200px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap:20px;
-}
-
-.photo{
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 8px 25px rgba(0,0,0,.08);
-  height:280px;
-  background:#eee;
-}
-
-.photo img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  transition:0.4s ease;
-}
-
-.photo img:hover{
-  transform:scale(1.05);
-}
-
-/* BOOKING */
-.booking{
-  background:#fbf7ed;
-}
-
-.booking-box{
-  max-width:850px;
-  margin:auto;
-  background:#fffdf8;
-  padding:45px;
-  border-radius:25px;
-  border:1px solid #ded2bd;
-  box-shadow:0 20px 50px rgba(35,75,50,.08);
-}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:18px;
-}
-
-.full{
-  grid-column:1/-1;
-}
-
-label{
-  display:block;
-  margin-bottom:7px;
-  color:#31513c;
-  font:bold 13px Arial,sans-serif;
-}
-
-input,select,textarea{
-  width:100%;
-  padding:14px;
-  border:1px solid #d7cbb5;
-  border-radius:10px;
-  background:#fbf7ed;
-  outline:none;
-  font:14px Arial,sans-serif;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-  border-color:#31513c;
-}
-
-textarea{
-  min-height:110px;
-  resize:vertical;
-}
-
-.submit{
-  width:100%;
-  margin-top:20px;
-  border:none;
-  cursor:pointer;
-  font-size:15px;
-}
-
-/* CONTACT */
-.contact{
-  background:#234b32;
-  color:white;
-  text-align:center;
-}
-
-.contact .heading h2{
-  color:white;
-}
-
-.contact .heading small{
-  color:#d8b66c;
-}
-
-.contact p{
-  font:16px/2 Arial,sans-serif;
-  margin-bottom:25px;
-}
-
-/* FOOTER */
-footer{
-  background:#183625;
-  color:#d9dfd9;
-  text-align:center;
-  padding:25px;
-  font:13px Arial,sans-serif;
-}
-
-/* WHATSAPP */
-.whatsapp{
-  position:fixed;
-  right:20px;
-  bottom:20px;
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  background:#25d366;
-  color:white;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-decoration:none;
-  font:bold 25px Arial;
-  box-shadow:0 8px 25px rgba(0,0,0,.2);
-  z-index:999;
-}
-
-/* RESPONSIVE */
-@media(max-width:992px){
-  .gallery-grid{
-    grid-template-columns:repeat(3, 1fr);
-  }
-}
-
-@media(max-width:850px){
-  nav{
-    justify-content:center;
-  }
-  nav ul{
-    display:none;
-  }
-  .about-grid{
-    grid-template-columns:1fr;
-  }
-  .service-grid{
-    grid-template-columns:1fr 1fr;
-  }
-  .gallery-grid{
-    grid-template-columns:1fr 1fr;
-  }
-  .form-grid{
-    grid-template-columns:1fr;
-  }
-  .full{
-    grid-column:auto;
-  }
-}
-
-@media(max-width:500px){
-  section{
-    padding:75px 18px;
-  }
-  .hero{
-    padding-left:20px;
-    padding-right:20px;
-  }
-  .hero h1{
-    font-size:58px;
-  }
-  .heading h2{
-    font-size:34px;
-  }
-  .service-grid{
-    grid-template-columns:1fr;
-  }
-  .gallery-grid{
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-  }
-  .photo{
-    height:190px;
-  }
-  .booking-box{
-    padding:25px 18px;
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jabeen Mehendi | Darbhanga</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: Georgia, serif;
+      background: #fbf7ed;
+      color: #243d2d;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #243d2d;
+      color: #fff;
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    nav .logo {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+    }
+    nav a {
+      color: #fbf7ed;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px 40px;
+      background: #f4ecdc;
+    }
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+      color: #243d2d;
+    }
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .gallery-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-card .info {
+      padding: 10px 14px;
+      font-size: 13px;
+      color: #666;
+    }
+    footer {
+      background: #243d2d;
+      color: #fff;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 14px;
+      margin-top: 50px;
+    }
+    .whatsapp {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25d366;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+  </style>
 </head>
-
 <body>
 
-<nav>
-  <div class="logo">
-    Jabeen <span>Mehendi</span>
-  </div>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#booking">Booking</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+  <nav>
+    <div class="logo">Jabeen Mehendi</div>
+    <ul>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<section class="hero" id="home">
-  <div class="hero-content">
-    <div class="tag">Mehendi Artist • Darbhanga</div>
-    <h1>Jabeen<br><span>Mehendi</span></h1>
-    <div class="hero-line"></div>
-    <p>
-      Elegant mehendi designs crafted with creativity,
-      tradition and love — making your special moments
-      even more beautiful.
-    </p>
-    <div class="buttons">
-      <a href="#booking" class="btn btn-green">Book Your Mehendi</a>
-      <a href="#gallery" class="btn btn-gold">Explore Gallery</a>
+  <div class="hero">
+    <h1>Jabeen Mehendi Artist</h1>
+    <p>Darbhanga, Bihar • Bridal, Arabic & Festive Designs</p>
+  </div>
+
+  <section id="gallery">
+    <h2 class="section-title">Our Designs</h2>
+    <div class="gallery-grid" id="galleryGrid">
+      <p style="grid-column: 1 / -1; text-align: center;">Loading designs...</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="about" id="about">
-  <div class="heading">
-    <small>Our Story</small>
-    <h2>Beauty In Every Detail</h2>
-  </div>
-  <div class="about-grid">
-    <div>
-      <h3>Made For Your Special Moments</h3>
-      <p>Welcome to Jabeen Mehendi, Darbhanga's destination for beautiful and elegant mehendi artistry.</p>
-      <p>We create designs for brides, engagements, parties and special celebrations.</p>
-      <p>Every design is created with attention to detail and according to your personal style.</p>
-    </div>
-    <div class="about-art">
-      <div>
-        <div class="symbol">❀</div>
-        <h3>Jabeen Mehendi</h3>
-        <p>Traditional Art • Modern Elegance</p>
-      </div>
-    </div>
-  </div>
-</section>
+  <a class="whatsapp" href="https://wa.me/919288594755" target="_blank">Chat on WhatsApp</a>
 
-<section class="services" id="services">
-  <div class="heading">
-    <small>What We Offer</small>
-    <h2>Our Mehendi Services</h2>
-  </div>
-  <div class="service-grid">
-    <div class="card">
-      <div class="icon">👰</div>
-      <h3>Bridal</h3>
-      <p>Detailed and elegant mehendi for your wedding day.</p>
-    </div>
-    <div class="card">
-      <div class="icon">🌿</div>
-      <h3>Arabic</h3>
-      <p>Stylish floral patterns with a beautiful modern touch.</p>
-    </div>
-    <div class="card">
-      <div class="icon">💍</div>
-      <h3>Engagement</h3>
-      <p>Beautiful designs for your engagement celebration.</p>
-    </div>
-    <div class="card">
-      <div class="icon">✨</div>
-      <h3>Party</h3>
-      <p>Simple and attractive designs for every occasion.</p>
-    </div>
-  </div>
-</section>
+  <footer>
+    &copy; 2026 Jabeen Mehendi • Darbhanga, Bihar<br><br>
+    Made with &hearts; for beautiful mehendi moments
+  </footer>
 
-<section class="gallery" id="gallery">
-  <div class="heading">
-    <small>Our Work</small>
-    <h2>Mehendi Gallery</h2>
-    <p style="color:#657068;font:15px Arial,sans-serif;margin-top:12px;">
-      Explore our beautiful mehendi designs
-    </p>
-  </div>
+  <script>
+    const galleryGrid = document.getElementById("galleryGrid");
 
-  <div class="gallery-grid" id="galleryGrid">
-    <p style="text-align:center;grid-column:1/-1;font:16px Arial,sans-serif;">
-      Loading designs...
-    </p>
-  </div>
-</section>
+    fetch("https://api.github.com/repos/jabeenmehendi03/jabeen-mehendi/contents/?per_page=100")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("API rate limit or network error");
+        }
+        return response.json();
+      })
+      .then(files => {
+        galleryGrid.innerHTML = "";
 
-<section class="booking" id="booking">
-  <div class="heading">
-    <small>Appointment</small>
-    <h2>Book Your Mehendi</h2>
-  </div>
-  <div class="booking-box">
-    <form id="bookingForm">
-      <div class="form-grid">
-        <div>
-          <label>Your Name</label>
-          <input id="name" type="text" placeholder="Enter your name" required>
-        </div>
-        <div>
-          <label>Phone Number</label>
-          <input id="phone" type="tel" placeholder="Enter phone number" required>
-        </div>
-        <div>
-          <label>Mehendi Type</label>
-          <select id="service" required>
-            <option value="">Select service</option>
-            <option>Bridal Mehendi</option>
-            <option>Arabic Mehendi</option>
-            <option>Engagement Mehendi</option>
-            <option>Party Mehendi</option>
-            <option>Custom Design</option>
-          </select>
-        </div>
-        <div>
-          <label>Event Date</label>
-          <input id="date" type="date" required>
-        </div>
-        <div class="full">
-          <label>Event Location</label>
-          <input id="location" type="text" placeholder="Enter event location">
-        </div>
-        <div class="full">
-          <label>Message</label>
-          <textarea id="message" placeholder="Tell us about your requirement..."></textarea>
-        </div>
-      </div>
-      <button class="btn btn-green submit" type="submit">
-        💬 Send Booking on WhatsApp
-      </button>
-    </form>
-  </div>
-</section>
+        const images = files.filter(file => 
+          file.type === "file" && 
+          /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)
+        );
 
-<section class="contact" id="contact">
-  <div class="heading">
-    <small>Contact</small>
-    <h2>Let's Create Beautiful Memories</h2>
-  </div>
-  <p>
-    📍 Darbhanga, Bihar<br>
-    📱 +91 92885 94755
-  </p>
-  <a class="btn btn-gold" href="https://wa.me/919288594755" target="_blank">
-    Chat on WhatsApp
-  </a>
-</section>
+        if (images.length === 0) {
+          galleryGrid.innerHTML = "<p style='grid-column:1/-1;text-align:center;'>No images found in repository root.</p>";
+          return;
+        }
 
-<footer>
-  © 2026 Jabeen Mehendi • Darbhanga, Bihar<br><br>
-  Made with ❤️ for beautiful mehendi moments
-</footer>
-
-<a class="whatsapp" href="https://wa.me/919288594755" target="_blank">☎</a>
-
-<script>
-// LOAD GITHUB GALLERY PHOTOS
-const galleryGrid = document.getElementById("galleryGrid");
-
-fetch("https://api.github.com/repos/jabeenmehendi03/jabeen-mehendi/contents/?per_page=100")
-  .then(response => {
-    if (!response.ok) {
-      throw new Error("API rate limit or network error");
-    }
-    return response.json();
-  })
-  .then(files => {
-    galleryGrid.innerHTML = "";
-
-    const images = files.filter(file =>
-      file.type === "file" &&
-      /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)
-    );
-
-    if(images.length === 0) {
-      galleryGrid.innerHTML = "<p style='grid-column:1/-1;text-align:center;'>No images found in repository.</p>";
-      return;
-    }
-
-    images.forEach((file, index) => {
-      const photo = document.createElement("div");
-      photo.className = "photo";
-
-      const img = document.createElement("img");
-      img.src = file.download_url;
-      img.alt = "Jabeen Mehendi Design " + (index + 1);
-      img.loading = "lazy";
-
-      photo.appendChild(img);
-      galleryGrid.appendChild(photo);
-    });
-  })
-  .catch(error => {
-    console.error(error);
-    galleryGrid.innerHTML = "<p style='grid-column:1/-1;text-align:center;'>Photos load nahi ho paayi. Page refresh karein.</p>";
-  });
-
-// WHATSAPP BOOKING FORM
-document.getElementById("bookingForm").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  let name = document.getElementById("name").value;
-  let phone = document.getElementById("phone").value;
-  let service = document.getElementById("service").value;
-  let date = document.getElementById("date").value;
-  let location = document.getElementById("location").value;
-  let message = document.getElementById("message").value;
-
-  let text = `🌿 *JABEEN MEHENDI - BOOKING REQUEST* 🌿\n\n👤 Name: ${name}\n📱 Phone: ${phone}\n🎨 Service: ${service}\n📅 Event Date: ${date}\n📍 Location: ${location}\n\n💬 Message:\n${message}\n\nI would like to book a mehendi appointment.`;
-
-  let url = "https://wa.me/919288594755?text=" + encodeURIComponent(text);
-  window.open(url, "_blank");
-});
-</script>
-
+        images.forEach(img => {
+          const card = document.createElement("div");
+          card.className = "gallery-card";
+          card.innerHTML = `
+            <img src="${img.download_url}" alt="Mehendi Design" loading="lazy">
+            <div class="info">${img.name}</div>
+          `;
+          galleryGrid.appendChild(card);
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        galleryGrid.innerHTML = "<p style='grid-column:1/-1;text-align:center;'>Unable to load gallery right now.</p>";
+      });
+  </script>
 </body>
 </html>
