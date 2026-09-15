@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Jabeen Mehendi | Darbhanga</title>
 
 <style>
@@ -288,24 +287,43 @@ section{
   font:14px/1.6 Arial,sans-serif;
 }
 
-<!-- GALLERY -->
-<section class="gallery" id="gallery">
+/* GALLERY STYLES */
+.gallery{
+  background:#fffdf8;
+}
 
-  <div class="heading">
-    <small>Our Work</small>
-    <h2>Mehendi Gallery</h2>
-    <p style="color:#657068;font:15px Arial,sans-serif;margin-top:12px;">
-      Explore our beautiful mehendi designs
-    </p>
-  </div>
+.gallery-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:20px;
+}
 
-  <div class="gallery-grid" id="galleryGrid">
-    <p style="text-align:center;grid-column:1/-1;font:16px Arial,sans-serif;">
-      Loading gallery...
-    </p>
-  </div>
+.photo{
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
+  height:280px;
+  background:#eee;
+}
 
-</section>
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:0.4s ease;
+}
+
+.photo img:hover{
+  transform:scale(1.05);
+}
+
+/* BOOKING */
+.booking{
+  background:#fbf7ed;
+}
 
 .booking-box{
   max-width:850px;
@@ -411,70 +429,61 @@ footer{
   z-index:999;
 }
 
-/* MOBILE */
-@media(max-width:850px){
+/* RESPONSIVE */
+@media(max-width:992px){
+  .gallery-grid{
+    grid-template-columns:repeat(3, 1fr);
+  }
+}
 
+@media(max-width:850px){
   nav{
     justify-content:center;
   }
-
   nav ul{
     display:none;
   }
-
   .about-grid{
     grid-template-columns:1fr;
   }
-
   .service-grid{
     grid-template-columns:1fr 1fr;
   }
-
   .gallery-grid{
     grid-template-columns:1fr 1fr;
   }
-
   .form-grid{
     grid-template-columns:1fr;
   }
-
   .full{
     grid-column:auto;
   }
 }
 
 @media(max-width:500px){
-
   section{
     padding:75px 18px;
   }
-
   .hero{
     padding-left:20px;
     padding-right:20px;
   }
-
   .hero h1{
     font-size:58px;
   }
-
   .heading h2{
     font-size:34px;
   }
-
   .service-grid{
     grid-template-columns:1fr;
   }
-
   .gallery-grid{
     grid-template-columns:1fr 1fr;
-    gap:9px;
+    gap:10px;
   }
-
   .photo{
     height:190px;
   }
-
   .booking-box{
     padding:25px 18px;
   }
@@ -484,12 +493,10 @@ footer{
 
 <body>
 
-<!-- NAVIGATION -->
 <nav>
   <div class="logo">
     Jabeen <span>Mehendi</span>
   </div>
-
   <ul>
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
@@ -500,75 +507,35 @@ footer{
   </ul>
 </nav>
 
-
-<!-- HERO -->
 <section class="hero" id="home">
-
   <div class="hero-content">
-
-    <div class="tag">
-      Mehendi Artist • Darbhanga
-    </div>
-
-    <h1>
-      Jabeen<br>
-      <span>Mehendi</span>
-    </h1>
-
+    <div class="tag">Mehendi Artist • Darbhanga</div>
+    <h1>Jabeen<br><span>Mehendi</span></h1>
     <div class="hero-line"></div>
-
     <p>
       Elegant mehendi designs crafted with creativity,
       tradition and love — making your special moments
       even more beautiful.
     </p>
-
     <div class="buttons">
-
-      <a href="#booking" class="btn btn-green">
-        Book Your Mehendi
-      </a>
-
-      <a href="#gallery" class="btn btn-gold">
-        Explore Gallery
-      </a>
-
+      <a href="#booking" class="btn btn-green">Book Your Mehendi</a>
+      <a href="#gallery" class="btn btn-gold">Explore Gallery</a>
     </div>
-
   </div>
-
 </section>
 
-
-<!-- ABOUT -->
 <section class="about" id="about">
-
   <div class="heading">
     <small>Our Story</small>
     <h2>Beauty In Every Detail</h2>
   </div>
-
   <div class="about-grid">
-
     <div>
       <h3>Made For Your Special Moments</h3>
-
-      <p>
-        Welcome to Jabeen Mehendi, Darbhanga's destination
-        for beautiful and elegant mehendi artistry.
-      </p>
-
-      <p>
-        We create designs for brides, engagements,
-        parties and special celebrations.
-      </p>
-
-      <p>
-        Every design is created with attention to detail
-        and according to your personal style.
-      </p>
+      <p>Welcome to Jabeen Mehendi, Darbhanga's destination for beautiful and elegant mehendi artistry.</p>
+      <p>We create designs for brides, engagements, parties and special celebrations.</p>
+      <p>Every design is created with attention to detail and according to your personal style.</p>
     </div>
-
     <div class="about-art">
       <div>
         <div class="symbol">❀</div>
@@ -576,135 +543,72 @@ footer{
         <p>Traditional Art • Modern Elegance</p>
       </div>
     </div>
-
   </div>
-
 </section>
 
-
-<!-- SERVICES -->
 <section class="services" id="services">
-
   <div class="heading">
     <small>What We Offer</small>
     <h2>Our Mehendi Services</h2>
   </div>
-
   <div class="service-grid">
-
     <div class="card">
       <div class="icon">👰</div>
       <h3>Bridal</h3>
-      <p>
-        Detailed and elegant mehendi for your wedding day.
-      </p>
+      <p>Detailed and elegant mehendi for your wedding day.</p>
     </div>
-
     <div class="card">
       <div class="icon">🌿</div>
       <h3>Arabic</h3>
-      <p>
-        Stylish floral patterns with a beautiful modern touch.
-      </p>
+      <p>Stylish floral patterns with a beautiful modern touch.</p>
     </div>
-
     <div class="card">
       <div class="icon">💍</div>
       <h3>Engagement</h3>
-      <p>
-        Beautiful designs for your engagement celebration.
-      </p>
+      <p>Beautiful designs for your engagement celebration.</p>
     </div>
-
     <div class="card">
       <div class="icon">✨</div>
       <h3>Party</h3>
-      <p>
-        Simple and attractive designs for every occasion.
-      </p>
+      <p>Simple and attractive designs for every occasion.</p>
     </div>
-
   </div>
-
 </section>
 
-
-<!-- GALLERY -->
 <section class="gallery" id="gallery">
-
   <div class="heading">
     <small>Our Work</small>
     <h2>Mehendi Gallery</h2>
+    <p style="color:#657068;font:15px Arial,sans-serif;margin-top:12px;">
+      Explore our beautiful mehendi designs
+    </p>
   </div>
 
-  <div class="gallery-grid">
-
-    <div class="photo">
-      <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?auto=format&fit=crop&w=800&q=85">
-    </div>
-
-    <div class="photo">
-      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=85">
-    </div>
-
-    <div class="photo">
-      <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=800&q=85">
-    </div>
-
-    <div class="photo">
-      <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=85">
-    </div>
-
-    <div class="photo">
-      <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=800&q=85">
-    </div>
-
-    <div class="photo">
-      <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=800&q=85">
-    </div>
-
-    <div class="photo">
-      <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=800&q=85">
-    </div>
-
-    <div class="photo">
-      <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=85">
-    </div>
-
+  <div class="gallery-grid" id="galleryGrid">
+    <p style="text-align:center;grid-column:1/-1;font:16px Arial,sans-serif;">
+      Loading designs...
+    </p>
   </div>
-
 </section>
 
-
-<!-- BOOKING -->
 <section class="booking" id="booking">
-
   <div class="heading">
     <small>Appointment</small>
     <h2>Book Your Mehendi</h2>
   </div>
-
   <div class="booking-box">
-
     <form id="bookingForm">
-
       <div class="form-grid">
-
         <div>
           <label>Your Name</label>
-          <input id="name" type="text"
-                 placeholder="Enter your name" required>
+          <input id="name" type="text" placeholder="Enter your name" required>
         </div>
-
         <div>
           <label>Phone Number</label>
-          <input id="phone" type="tel"
-                 placeholder="Enter phone number" required>
+          <input id="phone" type="tel" placeholder="Enter phone number" required>
         </div>
-
         <div>
           <label>Mehendi Type</label>
-
           <select id="service" required>
             <option value="">Select service</option>
             <option>Bridal Mehendi</option>
@@ -713,87 +617,60 @@ footer{
             <option>Party Mehendi</option>
             <option>Custom Design</option>
           </select>
-
         </div>
-
         <div>
           <label>Event Date</label>
           <input id="date" type="date" required>
         </div>
-
         <div class="full">
           <label>Event Location</label>
-          <input id="location" type="text"
-                 placeholder="Enter event location">
+          <input id="location" type="text" placeholder="Enter event location">
         </div>
-
         <div class="full">
           <label>Message</label>
-          <textarea id="message"
-                    placeholder="Tell us about your requirement..."></textarea>
+          <textarea id="message" placeholder="Tell us about your requirement..."></textarea>
         </div>
-
       </div>
-
       <button class="btn btn-green submit" type="submit">
         💬 Send Booking on WhatsApp
       </button>
-
     </form>
-
   </div>
-
 </section>
 
-
-<!-- CONTACT -->
 <section class="contact" id="contact">
-
   <div class="heading">
     <small>Contact</small>
     <h2>Let's Create Beautiful Memories</h2>
   </div>
-
   <p>
-    📍 Darbhanga, Bihar
-    <br>
+    📍 Darbhanga, Bihar<br>
     📱 +91 92885 94755
   </p>
-
-  <a class="btn btn-gold"
-     href="https://wa.me/919288594755"
-     target="_blank">
+  <a class="btn btn-gold" href="https://wa.me/919288594755" target="_blank">
     Chat on WhatsApp
   </a>
-
 </section>
 
-
-<!-- FOOTER -->
 <footer>
-  © 2026 Jabeen Mehendi • Darbhanga, Bihar
-  <br><br>
+  © 2026 Jabeen Mehendi • Darbhanga, Bihar<br><br>
   Made with ❤️ for beautiful mehendi moments
 </footer>
 
-
-<!-- WHATSAPP FLOATING BUTTON -->
-<a class="whatsapp"
-   href="https://wa.me/919288594755"
-   target="_blank">
-  ☎
-</a>
-
+<a class="whatsapp" href="https://wa.me/919288594755" target="_blank">☎</a>
 
 <script>
-// ===== GITHUB PHOTO GALLERY =====
-
+// LOAD GITHUB GALLERY PHOTOS
 const galleryGrid = document.getElementById("galleryGrid");
 
 fetch("https://api.github.com/repos/jabeenmehendi03/jabeen-mehendi/contents/?per_page=100")
-  .then(response => response.json())
+  .then(response => {
+    if (!response.ok) {
+      throw new Error("API rate limit or network error");
+    }
+    return response.json();
+  })
   .then(files => {
-
     galleryGrid.innerHTML = "";
 
     const images = files.filter(file =>
@@ -801,8 +678,12 @@ fetch("https://api.github.com/repos/jabeenmehendi03/jabeen-mehendi/contents/?per
       /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)
     );
 
-    images.forEach((file, index) => {
+    if(images.length === 0) {
+      galleryGrid.innerHTML = "<p style='grid-column:1/-1;text-align:center;'>No images found in repository.</p>";
+      return;
+    }
 
+    images.forEach((file, index) => {
       const photo = document.createElement("div");
       photo.className = "photo";
 
@@ -813,93 +694,29 @@ fetch("https://api.github.com/repos/jabeenmehendi03/jabeen-mehendi/contents/?per
 
       photo.appendChild(img);
       galleryGrid.appendChild(photo);
-
     });
-
   })
   .catch(error => {
-
-    galleryGrid.innerHTML =
-      "<p style='grid-column:1/-1;text-align:center;'>Gallery load nahi ho payi. Please refresh the page.</p>";
-
     console.error(error);
-
+    galleryGrid.innerHTML = "<p style='grid-column:1/-1;text-align:center;'>Photos load nahi ho paayi. Page refresh karein.</p>";
   });
-document.getElementById("bookingForm")
-.addEventListener("submit", function(e){
 
+// WHATSAPP BOOKING FORM
+document.getElementById("bookingForm").addEventListener("submit", function(e){
   e.preventDefault();
 
-  let name =
-  document.getElementById("name").value;
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let service = document.getElementById("service").value;
+  let date = document.getElementById("date").value;
+  let location = document.getElementById("location").value;
+  let message = document.getElementById("message").value;
 
-  let phone =
-  document.getElementById("phone").value;
+  let text = `🌿 *JABEEN MEHENDI - BOOKING REQUEST* 🌿\n\n👤 Name: ${name}\n📱 Phone: ${phone}\n🎨 Service: ${service}\n📅 Event Date: ${date}\n📍 Location: ${location}\n\n💬 Message:\n${message}\n\nI would like to book a mehendi appointment.`;
 
-  let service =
-  document.getElementById("service").value;
-
-  let date =
-  document.getElementById("date").value;
-
-  let location =
-  document.getElementById("location").value;
-
-  let message =
-  document.getElementById("message").value;
-
-  let text =
-`🌿 *JABEEN MEHENDI - BOOKING REQUEST* 🌿
-
-👤 Name: ${name}
-📱 Phone: ${phone}
-🎨 Service: ${service}
-📅 Event Date: ${date}
-📍 Location: ${location}
-
-💬 Message:
-${message}
-
-I would like to book a mehendi appointment.`;
-
-  let url =
-  "https://wa.me/919288594755?text="
-  + encodeURIComponent(text);
-
-  window.open(url,"_blank");
-
+  let url = "https://wa.me/919288594755?text=" + encodeURIComponent(text);
+  window.open(url, "_blank");
 });
-<script>
-
-YAHAN PASTE KARNA HAI 👇
-
-/* LOAD GITHUB GALLERY PHOTOS */
-const galleryGrid = document.getElementById("galleryGrid");
-
-fetch("https://api.github.com/repos/jabeenmehendi03/jabeen-mehendi/contents/")
-  .then(response => response.json())
-  .then(files => {
-    galleryGrid.innerHTML = "";
-
-    const images = files.filter(file =>
-      file.type === "file" &&
-      /\.(jpg|jpeg|png|webp|gif)$/i.test(file.name)
-    );
-
-    images.forEach((file, index) => {
-      const photo = document.createElement("div");
-      photo.className = "photo";
-
-      const img = document.createElement("img");
-      img.src = file.download_url;
-      img.alt = "Jabeen Mehendi Design " + (index + 1);
-      img.loading = "lazy";
-
-      photo.appendChild(img);
-      galleryGrid.appendChild(photo);
-    });
-  });
-
 </script>
 
 </body>
